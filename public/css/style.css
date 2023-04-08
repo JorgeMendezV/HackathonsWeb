@@ -2,12 +2,10 @@
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: var(--fs-400);
     /*color: hsl(var(--clr-white));*/
     /*background-color: hsl(--clr-dark);*/
     line-height: 1.5;
     min-height: 100vh;
-
     display: grid;
     grid-template-rows: min-content 1fr;
 
@@ -16,7 +14,7 @@ body {
 
 .flex {
     display: flex;
-    gap: var(--gap, 2rem);
+    gap: var(--gap, 3rem);
 }
 
 .sr-only {
@@ -32,8 +30,11 @@ body {
 
 /* primary header */
 .logo {
-    margin: 2rem;
+    margin: 1.5rem;
     border-radius: 50%;
+    max-width: 20%;
+    max-height: 20%;
+
 }
 
 .primary-header {
@@ -65,13 +66,17 @@ body {
 
 /*Mobile screen size*/
 @media (max-width: 65em) {
+    .primary-navigation a {
+        font-size: 20px;
+    }
+
     .primary-navigation {
         position: fixed;
         z-index: 1000;
         inset: 0 0 0 30%;
 
         flex-direction: column;
-        padding: min(30vh, 10rem) 5rem;
+        padding: min(35vh, 20rem) 5rem;
         background: black;
 
         transform: translateX(100%);
@@ -86,19 +91,21 @@ body {
         position: fixed;
         display: block;
         background-color: transparent;
-        background: url("../assets/shared/menu.png");
+        background: url("../assets/shared/menu-hamburger.png");
         background-repeat: no-repeat;
         width: 5rem;
+
+        /*Importante investigar*/
         aspect-ratio: 1;
         border: 0;
         top: 2rem;
-        right: 2rem;
+        right: 3rem;
         /*9999 because its gonna be on top of everything else*/
         z-index: 9999;
     }
 
     .mobile-nav-toggle[aria-expanded="true"] {
-        background: url("../assets/shared/cancel.png");
+        background: url("../assets/shared/close.png");
         background-repeat: no-repeat;
     }
 }

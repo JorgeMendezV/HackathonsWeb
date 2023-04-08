@@ -58,7 +58,7 @@ body {
     color: black;
 }
 
-.primary-navigation a> [aria-hidden="true"] {
+.primary-navigation a>span[aria-hidden="true"] {
     font-weight: 700;
     margin-inline-end: .75rem;
 }
@@ -71,21 +71,19 @@ body {
         inset: 0 0 0 30%;
 
         flex-direction: column;
-        padding: min(30vh, 10rem) 2rem;
-        background: gainsboro;
+        padding: min(30vh, 10rem) 5rem;
+        background: black;
 
         transform: translateX(100%);
         transition: transform 350ms ease-out;
     }
 
-    .primary-navigation[data-visible="true"]{
-
+    .primary-navigation[data-visible="true"] {
         transform: translateX(0%);
-
     }
 
     .mobile-nav-toggle {
-        position: absolute;
+        position: fixed;
         display: block;
         background-color: transparent;
         background: url("../assets/shared/menu.png");
@@ -99,15 +97,16 @@ body {
         z-index: 9999;
     }
 
-    .mobile-nav-toggle[aria-expanded="true"]{
-        background: url("../assets/shared/close.png");
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background: url("../assets/shared/cancel.png");
         background-repeat: no-repeat;
     }
 }
- /*para cuando este por mostrar el menu hamburguesa elimine los numeros*/
 
-@media(min-width:65em) and (max-width:70em){
-    .primary-navigation a > span[aria-hidden]{
+/*para cuando este por mostrar el menu hamburguesa elimine los numeros*/
+
+@media(min-width:65em) and (max-width:70em) {
+    .primary-navigation a>span[aria-hidden] {
         display: none;
     }
 }

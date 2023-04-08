@@ -2,14 +2,32 @@
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 4.72px;
+    font-size: var(--fs-400);
+    /*color: hsl(var(--clr-white));*/
+    /*background-color: hsl(--clr-dark);*/
+    line-height: 1.5;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: min-content 1fr;
+
+    overflow-x: hidden;
 }
 
 .flex {
     display: flex;
     gap: var(--gap, 2rem);
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 /* primary header */
@@ -23,6 +41,10 @@ body {
     justify-content: space-between;
 }
 
+.mobile-nav-toggle {
+    display: none;
+}
+
 .primary-navigation {
     list-style: none;
     padding: 0;
@@ -31,22 +53,61 @@ body {
 
 .primary-navigation a {
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4.72px;
+    color: black;
 }
 
-.primary-navigation a > [aria-hidden="true"] {
+.primary-navigation a> [aria-hidden="true"] {
     font-weight: 700;
     margin-inline-end: .75rem;
 }
 
-@media (max-width: 35em){
+/*Mobile screen size*/
+@media (max-width: 65em) {
     .primary-navigation {
-        --gap: 2em;
-        
-        position:fixed;
+        position: fixed;
+        z-index: 1000;
         inset: 0 0 0 30%;
 
         flex-direction: column;
         padding: min(30vh, 10rem) 2rem;
-        background: ghostwhite;
+        background: gainsboro;
+
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+    }
+
+    .primary-navigation[data-visible="true"]{
+
+        transform: translateX(0%);
+
+    }
+
+    .mobile-nav-toggle {
+        position: absolute;
+        display: block;
+        background-color: transparent;
+        background: url("../assets/shared/menu.png");
+        background-repeat: no-repeat;
+        width: 5rem;
+        aspect-ratio: 1;
+        border: 0;
+        top: 2rem;
+        right: 2rem;
+        /*9999 because its gonna be on top of everything else*/
+        z-index: 9999;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"]{
+        background: url("../assets/shared/close.png");
+        background-repeat: no-repeat;
+    }
+}
+ /*para cuando este por mostrar el menu hamburguesa elimine los numeros*/
+
+@media(min-width:65em) and (max-width:70em){
+    .primary-navigation a > span[aria-hidden]{
+        display: none;
     }
 }

@@ -6,7 +6,7 @@ const navToggle = document.querySelector(".mobile-nav-toggle");
 navToggle.addEventListener('click', (event) => {
     const visibility = primaryNav.getAttribute('data-visible');
 
-    // console.log(visibility);
+    //console.log(visibility);
     
     if(visibility === "false"){
         primaryNav.setAttribute('data-visible', true)
@@ -26,3 +26,4 @@ navToggle.addEventListener('click', (event) => {
         }
     });
 });
+

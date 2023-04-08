@@ -110,10 +110,80 @@ body {
     }
 }
 
-/*para cuando este por mostrar el menu hamburguesa elimine los numeros*/
+/*para cuando se aproxime a esas dimensiones 
+mostrar el menu hamburguesa y elimine los numeros*/
 
 @media(min-width:65em) and (max-width:70em) {
     .primary-navigation a>span[aria-hidden] {
         display: none;
     }
+}
+
+
+/*SEARCH BOTTOM*/
+
+.busqueda {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 10%;
+    float: right;
+}
+
+.busqueda input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+}
+
+.busqueda button {
+    color:white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #ccc;
+    background-color: black;
+}
+
+/*MAIN BOX STYLE*/
+
+.mainbox {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.mainbox img {
+    width: 30%;
+    height: 10%;
+    object-fit: cover;
+    margin-right: 30px;
+    border-radius: 4px;
+}
+
+.boxcontent {
+    flex: 1;
+    text-align: center;
+}
+
+.boxcontent h2 {
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+.boxcontent p {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+.boxdate {
+    font-size: 12px;
+    color: #666;
 }

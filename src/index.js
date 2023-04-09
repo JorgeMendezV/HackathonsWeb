@@ -8,6 +8,7 @@ const ejs = require('ejs');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
+require('./database');
 
 // start the server
 const http = require('http');

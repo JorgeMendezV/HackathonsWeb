@@ -10,15 +10,9 @@ app.use(bodyParser.json());
 
 app.use('../API/hackathons', hackathons);
 
-mongoose.connect(
-    'mongodb://192.168.100.41/hackaele'
-    , { useNewUrlParser: true },
-    (err, res) => {
-        err && console.log("Error conectando a la bd");
-
-        app.listen(4000, () => {
-            console.log("El servidor correindo en 192.168.100.41:4000");
-
-        });
-    }
-);
+// Si no conecta se debe verificar si el servidor acepta en su bindIp sea la IP del servidor.
+// el puerto siempre sera 27017
+mongoose.connect('mongodb://192.168.100.41:27017/hackaele'
+    , { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Conectado a MongoDB'))
+    .catch(err => console.log('Error al conectar a MongoDB:', err));

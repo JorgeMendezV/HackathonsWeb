@@ -27,32 +27,4 @@ navToggle.addEventListener('click', (event) => {
     });
 });
 
-fetch('../API/hackathons/all')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('hackathons-container');
-
-    data.forEach(hackathon => {
-      const div = document.createElement('div');
-      const img = document.createElement('img');
-      const boxcontent = document.createElement('div');
-      const h2 = document.createElement('h2');
-      const p = document.createElement('p');
-      const span = document.createElement('span');
-
-      img.src = hackathon.img;
-      h2.innerText = hackathon.title;
-      p.innerText = hackathon.description;
-      span.innerText = hackathon.date;
-
-      boxcontent.appendChild(h2);
-      boxcontent.appendChild(p);
-      boxcontent.appendChild(span);
-
-      div.appendChild(img);
-      div.appendChild(boxcontent);
-
-      container.appendChild(div);
-    });
-  });
 

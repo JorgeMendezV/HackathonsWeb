@@ -1,14 +1,15 @@
+
+// Initializations
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const hackathons = require('./API/hackathons');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Settings
 
-app.use('./API/hackathons', hackathons);
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
 
 // Si no conecta se debe verificar si el servidor acepta en su bindIp sea la IP del servidor.
 // el puerto siempre sera 27017

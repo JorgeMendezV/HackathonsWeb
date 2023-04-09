@@ -27,4 +27,4 @@ navToggle.addEventListener('click', (event) => {
     });
 });
 
-
+// Logica de API para html

@@ -1,3 +1,4 @@
+// importamos mongoose y creamos el Schema que utilizaremos
 const mongoose = require('mongoose');
 const Schems = mongoose.Schema;
 

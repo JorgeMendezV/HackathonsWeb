@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
-    <link rel="stylesheet" type="text/css" href="../../public/css/style.css">
-    <script src="../../public/js/script.js" defer></script>
+    <%- include("partials/main") -%>
 </head>
 
 <body>
@@ -21,11 +20,11 @@
         <nav>
             <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
                 <li class="active">
-                    <a href="index.html">
+                    <a href=".">
                         <span aria-hidden="true">00</span> Home
                     </a>
                 <li>
-                    <a href="#">
+                    <a href="localhost:3000/upload">
                         <span aria-hidden="true">01</span> Developers
                     </a>
                 <li>

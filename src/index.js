@@ -7,10 +7,17 @@ const { v4: uuid } = require('uuid');
 
 const path = require('path');
 
-
-
 const app = express();
-require('./database');
+
+// start the server
+const http = require('http');
+const mime = require('mime-types');
+const server = http.createServer(app);
+
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+    console.log(`Servidor ejecutándose en http://localhost:${port}`);
+});
 
 // Settings
 app.set('views', path.join(__dirname, 'views'));
@@ -29,22 +36,12 @@ const storage = multer.diskStorage({
 }) 
 app.use(multer({storage}).single('image'));
 
-// Global variables
-
-// start the server
-const http = require('http');
-const mime = require('mime-types');
-const server = http.createServer(app);
-
-const port = process.env.PORT || 3000;
-server.listen(port, () => {
-    console.log(`Servidor ejecutándose en http://localhost:${port}`);
-});
-
-
-// statics files
-app.use(express.static(path.join(__dirname, 'public')));
-
-
 // Routes
 app.use(require('./routes/index'));
+require('./database');
+
+// Global variables
+
+// statics files
+app.use(express.static(path.join(__dirname, '/public')));
+

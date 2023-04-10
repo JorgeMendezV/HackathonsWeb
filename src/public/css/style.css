@@ -151,7 +151,7 @@ mostrar el menu hamburguesa y elimine los numeros*/
     background-color: black;
 }
 
-/*MAIN BOX STYLE*/
+/*MAIN BOX - HACKATHONS CARDS STYLE*/
 .mainbox {
     position: absolute;
     margin-top: 50px;
@@ -164,39 +164,55 @@ mostrar el menu hamburguesa y elimine los numeros*/
     padding: 20px;
     border: 2px solid black;
     border-radius: 5px;
-  }
-  
-  .boxitem {
+}
+
+.boxitem {
     width: 45%;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-  }
-  
-  .boxitem img {
+}
+
+.boxitem img {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 10px;
-  }
-  
-  .boxcontent {
+}
+
+.boxcontent {
     flex: 1;
     text-align: center;
-  }
-  
-  .boxcontent h2 {
+}
+
+.boxcontent h2 {
     font-size: 20px;
     margin: 0 0 10px;
-  }
-  
-  .boxcontent p {
+}
+
+.boxcontent p {
     font-size: 16px;
     margin: 0 0 10px;
-  }
-  
-  .boxdate {
+}
+
+.boxdate {
     font-size: 12px;
     color: #666;
-  }
+}
+
+.boxcontent a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.boxcontent a:hover {
+    background-color: #333;
+}

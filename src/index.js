@@ -4,10 +4,19 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const multer = require('multer');
 const { v4: uuid } = require('uuid');
+const { format } = require('timeago.js');
 
 const path = require('path');
 
 const app = express();
+
+// Global variables
+
+// para mostrar una fecha mas legible para las fechas de las hackathones
+app.use((req, res, next) => {
+    app.locals.format = format;
+    next();
+});
 
 // start the server
 const http = require('http');
@@ -40,8 +49,5 @@ app.use(multer({storage}).single('image'));
 app.use(require('./routes/index'));
 require('./database');
 
-// Global variables
-
 // statics files
 app.use(express.static(path.join(__dirname, '/public')));
-

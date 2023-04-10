@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="primary-header flex">
+        <div>
+            <img src="./assets/shared/mainlogo.jpg" alt="logo" class="logo">
+        </div>
+
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria>
+            <span class="sr-only"> Menu </span>
+        </button>
+
+        <nav>
+            <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+                <li class="active">
+                    <a href="index.html">
+                        <span aria-hidden="true">00</span> Home
+                    </a>
+                <li>
+                    <a href="#">
+                        <span aria-hidden="true">01</span> Developers
+                    </a>
+                <li>
+                    <a href="#">
+                        <span aria-hidden="true">02</span> Companies
+                    </a>
+                <li>
+                    <a href="#">
+                        <span aria-hidden="true">03</span> Hackaele
+                    </a>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div>
+            <h1 style="font-size: 120px; text-align: center;">Hackaele</h1>
+            <p style="text-transform: uppercase; font-size: 40px; text-align: center; margin-bottom: 200px;"> Explore an
+                infinite world of opportunities!</p>
+        </div>
+
+        <div class="busqueda">
+            <input type="text" id="busqueda-titulo" placeholder="Buscar por título...">
+            <button id="buscar">Buscar</button>
+            <button id="filtro-fecha">Filtrar por fecha</button>
+        </div>
+
+        <div id="hackathons-container">
+            <div class="mainbox">
+                <img src="" alt="Imagen">
+                <div class="boxcontent">
+                    <h2>Title</h2>
+                    <p>Description </p>
+                    <span class="boxdate">Date</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

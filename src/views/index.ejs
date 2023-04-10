@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,36 +9,8 @@
 </head>
 
 <body>
-    <header class="primary-header flex">
-        <div>
-            <img src="./assets/shared/mainlogo.jpg" alt="logo" class="logo">
-        </div>
 
-        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria>
-            <span class="sr-only"> Menu </span>
-        </button>
-
-        <nav>
-            <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
-                <li class="active">
-                    <a href=".">
-                        <span aria-hidden="true">00</span> Home
-                    </a>
-                <li>
-                    <a href="localhost:3000/upload">
-                        <span aria-hidden="true">01</span> Developers
-                    </a>
-                <li>
-                    <a href="#">
-                        <span aria-hidden="true">02</span> Companies
-                    </a>
-                <li>
-                    <a href="#">
-                        <span aria-hidden="true">03</span> Hackaele
-                    </a>
-            </ul>
-        </nav>
-    </header>
+    <%- include('partials/navigation') -%>
 
     <main>
         <div>
@@ -54,19 +27,28 @@
 
         <div id="hackathons-container">
             <div class="mainbox">
-              <% images.forEach(function(image){ %>
-              <div class="boxitem">
-                <img src="<%=image.path%>" alt="">
-                <div class="boxcontent">
-                  <h2><%= image.title %>
-                    </h2>
-                  <p><%= image.description %></p>
-                  <span class="boxdate"><%= image.created_at %></span>
-                </div>
-              </div>
-              <%}) %>
+                <% images.forEach(function(image){ %>
+                    <div class="boxitem">
+                        <img src="<%=image.path%>" alt="">
+                        <div class="boxcontent">
+                            <h2>
+                                <%= image.title %>
+                            </h2>
+                            <p>
+                                <%= image.description %>
+                            </p>
+                            <span class="boxdate">
+                                <%= format( image.created_at ) %>
+                            </span>
+                            <a href="/image/<%= image._id %>" class="boxcontent">
+                                View Hackathon
+                            </a>
+                        </div>
+                    </div>
+                    <%}) %>
             </div>
-          </div>
+        </div>
+
     </main>
     <footer>
     </footer>

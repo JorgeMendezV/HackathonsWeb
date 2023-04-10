@@ -1,13 +1,13 @@
 const { Router } = require('express');
 const path = require('path');
 const router = Router();
+const { unlink } = require('fs-extra');
 
 const Image = require('../models/Image');
 
-
 router.get('/', async (req, res) => {
     const images = await Image.find();
-    console.log("carga las imagenes" + images)
+    console.log(" ???? carga las imagenes ???" + images)
     res.render('index', { images });
 });
 
@@ -39,12 +39,31 @@ router.post('/upload', async (req, res) => {
     //res.send('uploaded');
 });
 
-router.get('/image/:id', (req, res) => {
-    res.send('Profile image');
+// consulta asincrona
+router.get('/image/:id', async (req, res) => {
+    const { id } = req.params;
+    const image = await Image.findById(id);
+    console.log('Mostrando imagen seleccionada por id ' + image);
+    res.render('hackathonCard', { image });
 });
 
-router.get('/image/:id/delete', (req, res) => {
-    res.send('Image deleted');
+const fs = require('fs').promises;
+
+router.get('/image/:id/delete', async (req, res) => {
+    const { id } = req.params;
+    const image = await Image.findByIdAndDelete(id);
+    if (image) {
+        const imagePath = path.join(__dirname, '../public', image.path);
+        console.log('Ruta de imagen: ' + imagePath);
+        try {
+            await fs.access(imagePath);
+            await fs.unlink(imagePath);
+            console.log('Imagen eliminada con éxito');
+        } catch (error) {
+            console.error(`Error al eliminar la imagen: ${error}`);
+        }
+    }
+    res.redirect('/')
 });
 
 module.exports = router;

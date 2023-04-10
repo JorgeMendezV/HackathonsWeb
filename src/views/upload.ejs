@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Formulario de imágenes</title>
+  <%- include('partials/main') -%>
   <style>
     form {
       display: flex;
@@ -42,6 +43,9 @@
   </style>
 </head>
 <body>
+
+  <%- include('partials/navigation') -%>
+
   <form action="/upload" method="POST" enctype="multipart/form-data">
     <label for="titulo">Título:</label>
     <input type="text" name="title"><br><br>

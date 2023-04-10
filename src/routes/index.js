@@ -4,8 +4,10 @@ const router = Router();
 const Image = require('../models/image')
 
 
-router.get('/', (req, res) => {
-    res.send('Index form');
+router.get('/', async(req, res) => {
+    const images = await Image.find();
+    res.render('index', {images});
+    console.log("carga las imagenes"+images)
 });
 
 router.get('/upload', (req, res) => {
@@ -24,8 +26,6 @@ router.post('/upload', async (req, res) => {
     image.mimeType = req.file.mimeType;
     image.size = req.file.size;
 
-    console.log(image);
-
     // esto es una operacion asincrona, por lo que se puede ocupar
     // varias opciones para handleldiar esto. Usaremos async
     // en lugar de utilizar promesas.
@@ -35,7 +35,7 @@ router.post('/upload', async (req, res) => {
     res.redirect('/')
 
     //console.log(req.file);
-    res.send('uploaded');
+    //res.send('uploaded');
 });
 
 router.get('/image/:id', (req, res) => {

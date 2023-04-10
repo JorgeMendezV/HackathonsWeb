@@ -1,13 +1,14 @@
 const { Router } = require('express');
+const path = require('path');
 const router = Router();
 
-const Image = require('../models/image')
+const Image = require('../models/Image');
 
 
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
     const images = await Image.find();
-    res.render('index', {images});
-    console.log("carga las imagenes"+images)
+    console.log("carga las imagenes" + images)
+    res.render('index', { images });
 });
 
 router.get('/upload', (req, res) => {
@@ -17,7 +18,7 @@ router.get('/upload', (req, res) => {
 // evento o peticion post
 
 router.post('/upload', async (req, res) => {
-    const image =new Image();
+    const image = new Image();
     image.title = req.body.title;
     image.description = req.body.description;
     image.filename = req.file.filename;
@@ -34,7 +35,7 @@ router.post('/upload', async (req, res) => {
     // redireccionar vista inicial
     res.redirect('/')
 
-    //console.log(req.file);
+    console.log(req.file);
     //res.send('uploaded');
 });
 

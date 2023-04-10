@@ -57,18 +57,17 @@
             <div class="mainbox">
               <% images.forEach(function(image){ %>
               <div class="boxitem">
-                <img src="../../public/img/uploads/<% image.path %>" alt="">
+                <img src="<%=image.path%>" alt="">
                 <div class="boxcontent">
-                  <h2>Title</h2>
-                  <p>Description</p>
-                  <span class="boxdate">Date</span>
+                  <h2><%= image.title %>
+                    </h2>
+                  <p><%= image.description %></p>
+                  <span class="boxdate"><%= image.created_at %></span>
                 </div>
               </div>
               <%}) %>
             </div>
           </div>
-
-          
     </main>
     <footer>
     </footer>

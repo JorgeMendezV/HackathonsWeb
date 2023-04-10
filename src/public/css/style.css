@@ -7,7 +7,7 @@ body {
     display: grid;
     grid-template-rows: min-content 1fr;
     overflow-x: hidden;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .flex {
@@ -33,9 +33,10 @@ body {
 
 /* PRIMARY HEADER */
 .logo {
+    margin-left: 30px;
     margin: 1.5rem;
     border-radius: 50%;
-    max-width: 20%;
+    max-width: 14%;
     max-height: 20%;
 
 }
@@ -70,7 +71,7 @@ body {
 /*Mobile screen size*/
 @media (max-width: 65em) {
     .primary-navigation a {
-        font-size: 20px;
+        font-size: 19px;
     }
 
     .primary-navigation {
@@ -101,7 +102,7 @@ body {
         /*Importante investigar*/
         aspect-ratio: 1;
         border: 0;
-        top: 2rem;
+        top: 3rem;
         right: 3rem;
         /*9999 because its gonna be on top of everything else*/
         z-index: 9999;
@@ -127,7 +128,7 @@ mostrar el menu hamburguesa y elimine los numeros*/
 
 
 
-/*TEXT INDEX TITLE HACKAELE, SLOGAN AND ARROW*/
+/*TEXT INDEX TITLE HACKAELE, SLOGAN, MAIN IMAGE AND ARROW*/
 
 #titleMain {
     font-size: 120px;
@@ -143,41 +144,41 @@ mostrar el menu hamburguesa y elimine los numeros*/
     transform: translate(-50%, -50%);
     width: 100%;
     text-align: center;
-  }
-  
-  .animated-text {
+}
+
+.animated-text {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 2s, step-end 2s forwards;
+    animation: typing 4s, step-end 3s forwards;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-  }
+}
 
-  @keyframes typing {
+@keyframes typing {
     from {
-      width: 0;
+        width: 0;
     }
+
     to {
-      width: 100%;
+        width: 100%;
     }
-  }
+}
 
 
 .arrow-container {
     position: absolute;
-    top: 50%;
+    top: 53.5%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .arrow {
     position: relative;
-    border-top-width: 50px;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
     border-top: 50px solid black;
-    animation: arrow-bounce 1s ease-in-out infinite;
+    animation: arrow-bounce 1.5s ease-in-out infinite;
 }
 
 @keyframes arrow-bounce {
@@ -196,20 +197,64 @@ mostrar el menu hamburguesa y elimine los numeros*/
 
 /*Ajustar el tamanio para pantallas mas pequenas*/
 @media (max-width: 65em) {
-    #titleMain{
+    #titleMain {
         font-size: 90px;
     }
 
-    .text-container{
+    .text-container {
         font-size: 20px;
     }
-    .arrow{
-        margin-bottom: 200%;
+
+    .arrow {
+        margin-bottom: 220%;
         border-left: 30px solid transparent;
         border-right: 30px solid transparent;
         border-top: 30px solid black;
     }
-  }
+}
+
+@media(min-width:65em) and (max-width:70em) {
+    .arrow {
+        margin-bottom: 160%;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-top: 30px solid black;
+    }
+}
+
+
+.imageMain-container {
+    top: 5px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+#imageMain {
+    max-width: 400px;
+    max-height: 200px;
+}
+
+@media (max-width: 65em){
+    .imageMain-container {
+        top: 80px;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+    }
+    
+    #imageMain {
+        max-width: 500px;
+        max-height: 300px;
+    }
+}
+
+
+
 
 
 

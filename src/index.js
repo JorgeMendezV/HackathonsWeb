@@ -35,15 +35,15 @@ app.set('port', process.env.PORT || 3000);
 
 // Widdlewares
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 const storage = multer.diskStorage({
     destination: path.join(__dirname, 'public/img/uploads'),
     filename: (req, file, cb, filename) => {
         console.log(file);
         cb(null, uuid() + path.extname(file.originalname));
     }
-}) 
-app.use(multer({storage}).single('image'));
+})
+app.use(multer({ storage }).single('image'));
 
 // Routes
 app.use(require('./routes/index'));

@@ -12,47 +12,55 @@
 
     <%- include('partials/navigation') -%>
 
-    <main>
-        <div>
-            <h1 id="titleMain">Hackaele</h1>
-            <p id="sloganMain"> Explore an
-                infinite world of opportunities!</p>
-        </div>
+        <main>
+            <div>
+                <h1 id="titleMain">Hackaele</h1>
 
-        <div class="busqueda">
-            <input type="text" id="busqueda-titulo" placeholder="Buscar por título...">
-            <button id="buscar">Buscar</button>
-            <button id="filtro-fecha">Filtrar por fecha</button>
-        </div>
-
-        <div class="hackathons-container">
-            <div class="mainbox">
-                <% images.forEach(function(image){ %>
-                    <div class="boxitem">
-                        <img src="<%=image.path%>" alt="">
-                        <div class="boxcontent">
-                            <h2>
-                                <%= image.title %>
-                            </h2>
-                            <p>
-                                <%= image.description %>
-                            </p>
-                            <span class="boxdate">
-                                <%= format( image.created_at ) %>
-                            </span>
-                            <a href="/image/<%= image._id %>" class="boxcontent">
-                                View Hackathon
-                            </a>
-                        </div>
-                    </div>
-                    <%}) %>
+                <div class="text-container">
+                    <p class="animated-text">
+                        Explore an
+                        infinite world of opportunities!</p>
+                </div>
             </div>
-        </div>
 
-    </main>
-    <footer>
-        <%- include('partials/footer') -%>
-    </footer>
+            <div class="arrow-container">
+                <div class="arrow"></div>
+            </div>
+
+            <div class="busqueda">
+                <input type="text" id="busqueda-titulo" placeholder="Buscar por título...">
+                <button id="buscar">Buscar</button>
+                <button id="filtro-fecha">Filtrar por fecha</button>
+            </div>
+
+            <div class="hackathons-container">
+                <div class="mainbox">
+                    <% images.forEach(function(image){ %>
+                        <div class="boxitem">
+                            <img src="<%=image.path%>" alt="">
+                            <div class="boxcontent">
+                                <h2>
+                                    <%= image.title %>
+                                </h2>
+                                <p>
+                                    <%= image.description %>
+                                </p>
+                                <span class="boxdate">
+                                    <%= format( image.created_at ) %>
+                                </span>
+                                <a href="/image/<%= image._id %>" class="boxcontent">
+                                    View Hackathon
+                                </a>
+                            </div>
+                        </div>
+                        <%}) %>
+                </div>
+            </div>
+
+        </main>
+        <footer>
+            <%- include('partials/footer') -%>
+        </footer>
 </body>
 
 </html>

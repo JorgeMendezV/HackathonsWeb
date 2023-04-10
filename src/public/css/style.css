@@ -1,15 +1,13 @@
-/*General*/
+/*____ GENERAL ____*/
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /*color: hsl(var(--clr-white));*/
-    /*background-color: hsl(--clr-dark);*/
     line-height: 1.5;
     min-height: 100vh;
     display: grid;
     grid-template-rows: min-content 1fr;
-
     overflow-x: hidden;
+
 }
 
 .flex {
@@ -28,7 +26,12 @@ body {
     width: 1px;
 }
 
-/* primary header */
+
+
+
+
+
+/* PRIMARY HEADER */
 .logo {
     margin: 1.5rem;
     border-radius: 50%;
@@ -120,7 +123,26 @@ mostrar el menu hamburguesa y elimine los numeros*/
 }
 
 
-/*Text animation*/
+
+
+
+
+/*TEXT INDEX TITLE HACKAELE AND SLOGAN*/
+
+#titleMain {
+    font-size: 120px;
+    text-align: center;
+}
+
+#sloganMain {
+    text-transform: uppercase;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+
+
 
 
 
@@ -128,11 +150,16 @@ mostrar el menu hamburguesa y elimine los numeros*/
 /*SEARCH BOTTOM*/
 
 .busqueda {
+    position: inherit;
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-right: 10%;
-    float: right;
+    /* align-items: center; */
+    /* margin-bottom: 20px; */
+    /* margin-right: 10%; */
+    /* float: right; */
+    z-index: auto;
+    align-content: center;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .busqueda input[type="text"] {
@@ -151,12 +178,26 @@ mostrar el menu hamburguesa y elimine los numeros*/
     background-color: black;
 }
 
+.busqueda button:hover{
+    background-color: gray;
+}
+
+
+
+
+
+
+/*_______________________________________*/
 /*MAIN BOX - HACKATHONS CARDS STYLE*/
+.hackathons-container {
+    margin-bottom: 30px;
+}
+
 .mainbox {
-    position: absolute;
-    margin-top: 50px;
-    margin-left: 10%;
-    margin-right: 10%;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -215,4 +256,47 @@ mostrar el menu hamburguesa y elimine los numeros*/
 
 .boxcontent a:hover {
     background-color: #333;
+}
+
+
+
+
+
+
+
+/*FOOOTER*/
+
+footer {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform:uppercase ;
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+}
+
+footer li {
+    margin-right: 20px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }

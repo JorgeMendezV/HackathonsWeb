@@ -63,13 +63,17 @@ body {
     color: black;
 }
 
+.primary-navigation a:hover {
+    font-weight: bold;
+}
+
 .primary-navigation a>span[aria-hidden="true"] {
     font-weight: 700;
     margin-inline-end: .75rem;
 }
 
 /*Mobile screen size*/
-@media (max-width: 65em) {
+@media (max-width: 60em) {
     .primary-navigation a {
         font-size: 19px;
     }
@@ -117,7 +121,7 @@ body {
 /*para cuando se aproxime a esas dimensiones 
 mostrar el menu hamburguesa y elimine los numeros*/
 
-@media(min-width:65em) and (max-width:70em) {
+@media(min-width:60em) and (max-width:80em) {
     .primary-navigation a>span[aria-hidden] {
         display: none;
     }
@@ -130,16 +134,19 @@ mostrar el menu hamburguesa y elimine los numeros*/
 
 /*TEXT INDEX TITLE HACKAELE, SLOGAN, MAIN IMAGE AND ARROW*/
 
-#titleMain {
+.titleMain {
+    position: relative;
+    text-align: center;
     font-size: 120px;
     text-align: center;
+    margin-top: -0.05%;
 }
 
 .text-container {
     position: relative;
     text-transform: uppercase;
     font-size: 35px;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -166,59 +173,31 @@ mostrar el menu hamburguesa y elimine los numeros*/
 }
 
 
-.arrow-container {
-    position: absolute;
-    top: 53.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.arrow {
-    position: relative;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 50px solid black;
-    animation: arrow-bounce 1.5s ease-in-out infinite;
-}
-
-@keyframes arrow-bounce {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(5px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
 /*Ajustar el tamanio para pantallas mas pequenas*/
-@media (max-width: 65em) {
-    #titleMain {
+@media (max-width: 60em) {
+    .titleMain {
         font-size: 90px;
+        margin-bottom: 5%;
     }
 
     .text-container {
         font-size: 20px;
     }
 
-    .arrow {
-        margin-bottom: 220%;
-        border-left: 30px solid transparent;
-        border-right: 30px solid transparent;
-        border-top: 30px solid black;
+    .titleMain {
+        font-size: 100px;
+        margin-top: 5%;
     }
 }
 
-@media(min-width:65em) and (max-width:70em) {
-    .arrow {
-        margin-bottom: 160%;
-        border-left: 30px solid transparent;
-        border-right: 30px solid transparent;
-        border-top: 30px solid black;
+@media(min-width:60em) and (max-width:80em) {
+    .text-container {
+        font-size: 30px;
+    }
+
+    .titleMain {
+        font-size: 120px;
+        margin-top: 5%;
     }
 }
 
@@ -237,7 +216,7 @@ mostrar el menu hamburguesa y elimine los numeros*/
     max-height: 200px;
 }
 
-@media (max-width: 65em){
+@media (max-width: 60em) {
     .imageMain-container {
         top: 80px;
         position: relative;
@@ -246,7 +225,7 @@ mostrar el menu hamburguesa y elimine los numeros*/
         width: 100%;
         text-align: center;
     }
-    
+
     #imageMain {
         max-width: 500px;
         max-height: 300px;
@@ -265,7 +244,7 @@ mostrar el menu hamburguesa y elimine los numeros*/
     display: flex;
     /* align-items: center; */
     /* margin-bottom: 20px; */
-    /* margin-right: 10%; */
+    margin-right: 10%;
     /* float: right; */
     z-index: auto;
     align-content: center;
@@ -278,9 +257,11 @@ mostrar el menu hamburguesa y elimine los numeros*/
     font-size: 16px;
     border-radius: 5px 0 0 5px;
     border: 1px solid #ccc;
+    cursor: pointer;
 }
 
 .busqueda button {
+    cursor: pointer;
     color: white;
     padding: 10px;
     font-size: 16px;
@@ -307,15 +288,12 @@ mostrar el menu hamburguesa y elimine los numeros*/
 .mainbox {
     position: relative;
     margin-top: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 5px;
+    padding: 10px;
 }
 
 .boxitem {
@@ -323,13 +301,15 @@ mostrar el menu hamburguesa y elimine los numeros*/
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+    border: 4px solid black;
+    border-radius: 18px 18px 6px 6px;
 }
 
 .boxitem img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 
@@ -359,6 +339,9 @@ mostrar el menu hamburguesa y elimine los numeros*/
     align-items: center;
     background-color: black;
     color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -369,7 +352,16 @@ mostrar el menu hamburguesa y elimine los numeros*/
     background-color: #333;
 }
 
+@media screen and (max-width: 60em) {
+    .mainbox {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 
+    .boxitem {
+        width: 100%;
+    }
+}
 
 
 
@@ -393,7 +385,7 @@ footer {
     align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 60em) {
     footer {
         flex-direction: column;
         text-align: center;
@@ -425,4 +417,86 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/*FORMS IN UPLOAD.EJS*/
+form {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.titulo-main {
+    position: relative;
+    text-align: center;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-color: black;
+}
+
+
+/* Estilo para el input file */
+
+/* Estilo para el input file */
+.custom-file-input::-webkit-file-upload-button {
+    background: #000000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .custom-file-input::-moz-file-upload-button {
+    background: #000000;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+form input[type="submit"] {
+    margin-left: 40%;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #666;
+}
+
+@media(max-width: 60em) {
+    .titulo-main {
+        font-size: 30px;
+        margin-top: 10%;
+    }
+
+    form input[type="submit"] {
+        margin-left: 30%;
+    }
 }

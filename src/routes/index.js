@@ -44,7 +44,7 @@ router.get('/image/:id', async (req, res) => {
     const { id } = req.params;
     const image = await Image.findById(id);
     console.log('Mostrando imagen seleccionada por id ' + image);
-    res.render('hackathonCard', { image });
+    res.render('cards', { image });
 });
 
 const fs = require('fs').promises;

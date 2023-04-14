@@ -307,7 +307,7 @@ mostrar el menu hamburguesa y elimine los numeros*/
 
 .boxitem img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -339,8 +339,8 @@ mostrar el menu hamburguesa y elimine los numeros*/
     align-items: center;
     background-color: black;
     color: white;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
     margin-bottom: 10%;
     padding: 10px 20px;
     border-radius: 5px;

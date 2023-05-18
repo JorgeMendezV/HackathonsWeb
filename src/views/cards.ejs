@@ -4,11 +4,13 @@
 <head>
     <title>View Hackathon</title>
     <%- include("partials/main") -%>
+    <!-- Se incluye un archivo parcial llamado "main" -->
 </head>
 
 <body>
     <header>
         <%- include('partials/navigation') -%>
+        <!-- Se incluye un archivo parcial llamado "navigation" -->
     </header>
     <main>
         <div id="hackathons-view-container">
@@ -16,24 +18,30 @@
                 <div class="row">
                     <div class="col-md-6">
                         <img src="<%=image.path%>" alt="" class="view-image">
+                        <!-- Se muestra una imagen con la ruta especificada por la variable "image.path" -->
                     </div>
                     <div class="col-md-6">
                         <div class="boxcontent-view">
                             <h2>
                                 <%= image.title %>
+                                <!-- Se muestra el título de la imagen -->
                             </h2>
                             <p>
                                 <%= image.description %>
+                                <!-- Se muestra la descripción de la imagen -->
                             </p>
                             <span class="boxdate-view">
                                 <%= format(image.created_at) %>
+                                <!-- Se muestra la fecha de creación de la imagen formateada según una función "format" -->
                             </span>
                             <div class="button-group">
                                 <a href="/image/<%= image._id %>/delete" class="btn btn-danger">
                                     Delete Hackathon
+                                    <!-- Se crea un enlace para eliminar el hackathon asociado a esta imagen -->
                                 </a>
                                 <a href="/image/<%= image._id %>/update" class="btn btn-dark">
                                     Update Hackathon
+                                    <!-- Se crea un enlace para actualizar el hackathon asociado a esta imagen -->
                                 </a>
                             </div>
                         </div>
@@ -44,6 +52,7 @@
     </main>
     <footer>
         <%- include('partials/footer') -%>
+        <!-- Se incluye un archivo parcial llamado "footer" -->
     </footer>
 </body>
 

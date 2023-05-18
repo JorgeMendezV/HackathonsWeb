@@ -1,53 +1,55 @@
-// Initializations
-const express = require('express');
-const mongoose = require('mongoose');
-const morgan = require('morgan');
-const multer = require('multer');
-const { v4: uuid } = require('uuid');
-const { format } = require('timeago.js');
+// Importación de los módulos y paquetes necesarios
+const express = require('express'); // Framework web de Node.js
+const mongoose = require('mongoose'); // ODM para MongoDB
+const morgan = require('morgan'); // Middleware para el registro de solicitudes HTTP en la consola
+const multer = require('multer'); // Middleware para el manejo de carga de archivos
+const { v4: uuid } = require('uuid'); // Generación de identificadores únicos
+const { format } = require('timeago.js'); // Formateo de fechas en formato legible
+const path = require('path'); // Funciones para manejar rutas de archivos
 
-const path = require('path');
+const app = express(); // Creación de una instancia de la aplicación Express
 
-const app = express();
 
 // Global variables
-
-// para mostrar una fecha mas legible para las fechas de las hackathones
+// Configuración para mostrar una fecha más legible para las fechas de las hackathones
 app.use((req, res, next) => {
     app.locals.format = format;
     next();
 });
 
-// start the server
+// Creación del servidor HTTP y tipos de datos estaticos
 const http = require('http');
 const mime = require('mime-types');
 const server = http.createServer(app);
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3000;
 server.listen(port, () => {
     console.log(`Servidor ejecutándose en http://localhost:${port}`);
 });
 
-// Settings
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.set('port', process.env.PORT || 3000);
+// Configuración
+app.set('views', path.join(__dirname, 'views')); // Configuración de la carpeta de vistas
+app.set('view engine', 'ejs'); // Configuración del motor de vistas EJS
+app.set('port', process.env.PORT || 3000); // Configuración del puerto del servidor
 
-// Widdlewares
-app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: false }));
+// Un middleware en el contexto de una aplicación web 
+//es una función o conjunto de funciones que se ejecutan 
+//antes de que lleguen a su destino final las solicitudes del cliente y las respuestas del servidor.
+// Middlewares
+app.use(morgan('dev')); // Middleware para el registro de solicitudes HTTP en la consola
+app.use(express.urlencoded({ extended: false })); // Middleware para el análisis de datos de formulario
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'public/img/uploads'),
+    destination: path.join(__dirname, 'public/img/uploads'), // Directorio de destino para subir imágenes
     filename: (req, file, cb, filename) => {
         console.log(file);
-        cb(null, uuid() + path.extname(file.originalname));
+        cb(null, uuid() + path.extname(file.originalname)); // Generación de un nombre único para el archivo de imagen
     }
-})
-app.use(multer({ storage }).single('image'));
+});
+app.use(multer({ storage }).single('image')); // Middleware para el manejo de carga de archivos de imagen con Multer
 
-// Routes
-app.use(require('./routes/index'));
-require('./database');
+// Rutas
+app.use(require('./routes/index')); // Middleware para las rutas de la aplicación
+require('./database'); // Importación y ejecución de la configuración de la base de datos
 
-// statics files
-app.use(express.static(path.join(__dirname, '/public')));
+// Archivos estáticos
+app.use(express.static(path.join(__dirname, '/public'))); // Middleware para servir archivos estáticos desde la carpeta 'public'

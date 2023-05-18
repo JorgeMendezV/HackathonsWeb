@@ -1,5 +1,4 @@
 // Logica para nav menu principal
-
 const primaryNav = document.querySelector(".primary-navigation");
 const navToggle = document.querySelector(".mobile-nav-toggle");
 
@@ -27,4 +26,4 @@ navToggle.addEventListener('click', (event) => {
     });
 });
 
-// Logica de API para html
+

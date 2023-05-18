@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
-    <%- include("partials/main") -%>
+    <%- include("partials/main") -%> <!-- Inclusión de una plantilla parcial llamada 'main' -->
 
 </head>
 
 <body>
-    <%- include('partials/navigation') -%>
+    <%- include('partials/navigation') -%> <!-- Inclusión de una plantilla parcial llamada 'navigation' -->
         <main>
             <div>
                 <h1 id="" class="titleMain animated-text">Hack-ele</h1>
@@ -36,34 +36,43 @@
             <div class="container">
                 <div class="hackathons-container">
                     <div class="row">
+                        <!--Itera sobre cada imagen en la matriz imagenes compuesta por los documentos en el json-->
+                        <!--Imagen dentro del function representa el valor retornado mas no una variable externa-->
+                        <!--Dentro de la función de callback function(image), el parámetro image representa el valor retornado
+                             en cada iteración del bucle forEach-->
                         <% images.forEach(function(image){ %>
+                            <!-- Inicio del bucle para cada imagen en la matriz 'images' -->
                             <div class="col-lg-4 col-md-6">
                                 <div class="card">
                                     <img src="<%=image.path%>" class="card-img-top" alt="">
+                                    <!-- Mostrar la imagen de la hackathon -->
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <%= image.title %>
                                         </h5>
+                                        <!-- Mostrar el título de la hackathon -->
                                         <p class="card-text">
                                             <%= image.description.substring(0, 100) %>
-                                                <!-- Shorten the description if it's too long -->
+                                            <!-- Mostrar la descripción de la hackathon acortada si es demasiado larga -->
                                         </p>
                                         <p class="card-date">
                                             <%= format(image.created_at) %>
                                         </p>
+                                        <!-- Mostrar la fecha de creación de la hackathon -->
                                         <a href="/image/<%= image._id %>" class="btn btn-dark">
                                             View Hackathon
                                         </a>
+                                        <!-- Enlace para ver los detalles completos de la hackathon -->
                                     </div>
                                 </div>
                             </div>
-                            <% }) %>
+                        <% }) %>                        
                     </div>
                 </div>
             </div>
         </main>
         <footer>
-            <%- include('partials/footer') -%>
+            <%- include('partials/footer') -%> <!-- Inclusión de una plantilla parcial llamada 'footer' -->
         </footer>
 </body>
 

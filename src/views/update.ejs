@@ -1,16 +1,20 @@
+<!-- Definición del documento HTML -->
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>Actualizacion</title>
-  <%- include('partials/main') -%>
+  <%- include('partials/main') -%> <!-- Inclusión de una plantilla parcial llamada 'main' -->
 </head>
 
 <body>
-  <%- include('partials/navigation') -%>
+  <%- include('partials/navigation') -%> <!-- Inclusión de una plantilla parcial llamada 'navigation' -->
 
+    <!-- Título principal -->
     <h1 class="titulo-main">Actualizacion de hackathon</h1>
-    <%- include('partials/card') -%>
+    <%- include('partials/card') -%> <!-- Inclusión de una plantilla parcial llamada 'card' -->
+
+    <!-- Formulario de actualización de hackathon -->
       <form action="/image/<%= image._id %>/update" method="POST" enctype="multipart/form-data">
         <label for="titulo">Título:</label>
         <input type="text" name="title" value="<%= image.title %>"><br><br>
@@ -23,8 +27,10 @@
 
         <input type="submit" value="Actualizar hackathon">
       </form>
+
+      <!-- Pie de página -->
       <footer>
-        <%- include('partials/footer') -%>
+        <%- include('partials/footer') -%> <!-- Inclusión de una plantilla parcial llamada 'footer' -->
       </footer>
 </body>
 

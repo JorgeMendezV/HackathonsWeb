@@ -23,7 +23,7 @@ const http = require('http');
 const mime = require('mime-types');
 const server = http.createServer(app);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 server.listen(port, () => {
     console.log(`Servidor ejecutándose en http://localhost:${port}`);
 });

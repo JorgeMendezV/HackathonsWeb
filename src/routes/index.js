@@ -124,6 +124,19 @@ router.get('/image/:id/update', async (req, res) => {
     res.redirect('/');
   });
   
+
+  router.get('/search', async (req, res) => {
+    const { title } = req.query;
+  
+    try {
+      const images = await Image.find({ title: { $regex: title, $options: 'i' } });
+      res.render('index', { images });
+    } catch (error) {
+      console.error(`Error al buscar las hackathones: ${error}`);
+      res.redirect('/');
+    }
+  });
+  
   
 
 

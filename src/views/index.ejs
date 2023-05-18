@@ -26,10 +26,12 @@
             </div>
 
             <div class="busqueda">
-                <input type="text" id="busqueda-titulo" placeholder="Buscar por título...">
-                <button id="buscar">Buscar</button>
-                <button id="filtro-fecha">Filtrar por fecha</button>
-            </div>
+                <form action="/search" method="GET">
+                  <input type="text" id="busqueda-titulo" name="title" placeholder="Buscar por título...">
+                  <button type="submit">Buscar</button>
+                  <button id="filtro-fecha">Filtrar por fecha</button>
+                </form>
+              </div>              
 
             <div class="hackathons-container">
                 <div class="mainbox">

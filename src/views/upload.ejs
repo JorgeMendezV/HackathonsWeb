@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Formulario de imágenes</title>
   <%- include('partials/main') -%>
 </head>
+
 <body>
 
   <%- include('partials/navigation') -%>
 
-  <h1 class="titulo-main">Ingresa una hackathon <br>
-    para empezar la magia!</h1>
+    <h1 class="titulo-main">Ingresa una hackathon <br>
+      para empezar la magia!</h1>
 
-  <form action="/upload" method="POST" enctype="multipart/form-data">
-    <label for="titulo">Título:</label>
-    <input type="text" name="title"><br><br>
+    <div class="imageCards-container">
+      <img id="imageMain" src="./assets/shared/Programming-amico.png" alt="">
+    </div>
 
-    <label for="descripcion">Descripción:</label>
-    <input type="text" name="description"><br><br>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <label for="titulo">Título:</label>
+      <input type="text" name="title"><br><br>
 
-    <label for="imagen">Seleccione una imagen:</label>
-    <input type="file" name="image" id="imagen" class="custom-file-input"><br><br>
+      <label for="descripcion">Descripción:</label>
+      <input type="text" name="description"><br><br>
 
-    <input type="submit" value="Save image">
-  </form>
+      <label for="imagen">Seleccione una imagen:</label>
+      <input type="file" name="image" id="imagen" class="custom-file-input"><br><br>
+
+      <input type="submit" value="Save image">
+    </form>
+
+    <footer>
+      <%- include('partials/footer') -%>
+    </footer>
 </body>
+
 </html>

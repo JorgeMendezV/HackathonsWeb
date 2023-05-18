@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Actualizacion</title>
   <%- include('partials/main') -%>
 </head>
+
 <body>
   <%- include('partials/navigation') -%>
 
-  <h1 class="titulo-main">Actualizacion de hackathon</h1>
-  <%- include('partials/card') -%>
-  <form action="/image/<%= image._id %>/update" method="POST" enctype="multipart/form-data">
-    <label for="titulo">Título:</label>
-    <input type="text" name="title" value="<%= image.title %>"><br><br>
+    <h1 class="titulo-main">Actualizacion de hackathon</h1>
+    <%- include('partials/card') -%>
+      <form action="/image/<%= image._id %>/update" method="POST" enctype="multipart/form-data">
+        <label for="titulo">Título:</label>
+        <input type="text" name="title" value="<%= image.title %>"><br><br>
 
-    <label for="descripcion">Descripción:</label>
-    <input type="text" name="description" value="<%= image.description %>"><br><br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" name="description" value="<%= image.description %>"><br><br>
 
-    <label for="imagen">Seleccione una imagen:</label>
-    <input type="file" name="image" id="imagen" class="custom-file-input"><br><br>
+        <label for="imagen">Seleccione una imagen:</label>
+        <input type="file" name="image" id="imagen" class="custom-file-input"><br><br>
 
-    <input type="submit" value="Actualizar hackathon">
-  </form>
+        <input type="submit" value="Actualizar hackathon">
+      </form>
+      <footer>
+        <%- include('partials/footer') -%>
+      </footer>
 </body>
+
 </html>

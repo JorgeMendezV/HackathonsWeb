@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
     <%- include("partials/main") -%>
+
 </head>
 
 <body>
-
     <%- include('partials/navigation') -%>
         <main>
             <div>
@@ -27,36 +27,40 @@
 
             <div class="busqueda">
                 <form action="/search" method="GET">
-                  <input type="text" id="busqueda-titulo" name="title" placeholder="Buscar por título...">
-                  <button type="submit">Buscar</button>
-                  <button id="filtro-fecha">Filtrar por fecha</button>
+                    <input type="text" id="busqueda-titulo" name="title" placeholder="Buscar por título...">
+                    <button type="submit">Buscar</button>
+                    <button id="filtro-fecha">Filtrar por fecha</button>
                 </form>
-              </div>              
-
-            <div class="hackathons-container">
-                <div class="mainbox">
-                    <% images.forEach(function(image){ %>
-                        <div class="boxitem">
-                            <img src="<%=image.path%>" alt="">
-                            <div class="boxcontent">
-                                <h2>
-                                    <%= image.title %>
-                                </h2>
-                                <p>
-                                    <%= image.description %>
-                                </p>
-                                <span class="boxdate">
-                                    <%= format( image.created_at ) %>
-                                </span>
-                                <a href="/image/<%= image._id %>" class="boxcontent">
-                                    View Hackathon
-                                </a>
-                            </div>
-                        </div>
-                        <%}) %>
-                </div>
             </div>
 
+            <div class="container">
+                <div class="hackathons-container">
+                    <div class="row">
+                        <% images.forEach(function(image){ %>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card">
+                                    <img src="<%=image.path%>" class="card-img-top" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= image.title %>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%= image.description.substring(0, 100) %>
+                                                <!-- Shorten the description if it's too long -->
+                                        </p>
+                                        <p class="card-date">
+                                            <%= format(image.created_at) %>
+                                        </p>
+                                        <a href="/image/<%= image._id %>" class="btn btn-dark">
+                                            View Hackathon
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <%- include('partials/footer') -%>
